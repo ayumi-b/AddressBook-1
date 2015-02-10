@@ -13,3 +13,16 @@ describe('hello', function () {
     hello().should.equal('world');
   });
 });
+
+describe('setUpPage', function () {
+  it('should console log the page is set'), function () {
+    setUpPage().should.log('the page is set');
+  };
+});
+
+describe('toggled', function () {
+  it('should console log to add the clicked items'), function () {
+    toggled().should.log('add the clicked items');
+  };
+});
+

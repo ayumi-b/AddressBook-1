@@ -9,8 +9,8 @@ var firebaseUrl = "https://bookofcontacts.firebaseio.com/friends.json";
 var $tbody = $('tbody');
 
 //when page loads, add data from firebase to table
-$(document).ready(function loadPageObjects() {
-  console.log("page is loaded");
+$(document).ready(function setUpPage() {
+  console.log("the page is set");
 
   $('.fillOutForm').hide();
 
@@ -22,13 +22,13 @@ $(document).ready(function loadPageObjects() {
   });
 
 //show contact form 
-$('#pleaseAddMe').on('click', function() {
-  console.log("start adding clicked");
+$('#pleaseAddMe').on('click', function toggled() {
+  console.log("add the clicked items");
   $('.fillOutForm').toggle();
   });
 });
 
-//when button is clicked, add friend to row on page
+//once clicked, the info is placed on the table
 $('#sendMyInfo').on('click',  function(event) {
   event.preventDefault();
 
@@ -48,7 +48,7 @@ $('#sendMyInfo').on('click',  function(event) {
                    phone +
                    '</td><td>' +
                    email +
-                   '</td><td><button id="removeRow">Remove</button><tr>');
+                   '</td><td><button id="removeRow">Remove</button><tr>');                   
 
 //adding stuff to firebase
   var friendToAdd = JSON.stringify({
