@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Mocha Spec Runner</title>
+    <link rel="stylesheet" href="../bower_components/mocha/mocha.css">
+  </head>
+  <body>
+    <div id="mocha">
+      <div class="mocha-fixture hidden">
+        <table><thead></thead><tbody></tbody></table>
+        <h1>Mocha Spec Runner</h1>
+      </div>
+    </div>
+ 
+    <script src="../bower_components/mocha/mocha.js"></script>
+    <script src="../bower_components/chai/chai.js"></script>
+    <script>mocha.setup('bdd');</script>
+    <!-- http://mochajs.org/#interfaces -->
+    <!-- 'tdd' provides suite(), test(), setup(), & teardown() -->
+    <!-- 'bdd' provides describe(), it(), before(), after(), beforeEach(), & afterEach() -->
+ 
+    <script>
+        var assert = chai.assert,
+            expect = chai.expect,
+            should = chai.should();
+    </script>
+ 
+    <!-- include source files here... -->
+    <script src="../bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="../bower_components/lodash/lodash.min.js"></script>
+    <script src="../bower_components/async/lib/async.js"></script>
+    <script src="../public/js/main.js"></script>
+    <!-- <script src="../js/main.js"></script> -->
+    <!-- include spec files here... -->
+    <script src="spec/main.test.js"></script>
+ 
+    <script>
+      if (window.mochaPhantomJS) {
+        mochaPhantomJS.run();
+      } else {  
+        mocha.run();
+      }  
+    </script>
+  </body>
+</html>
