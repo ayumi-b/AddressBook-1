@@ -5,6 +5,12 @@ h1 {
   max-width: 400px;
 }
 
+
+
 .table {
-  max-width: 400px;
+  max-width: 100%;
+}
+
+img {
+  max-width: 150px;
 }
