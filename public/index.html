@@ -1,18 +1,44 @@
-<!doctype html>
-<html lang="en-US">
-  <head>
-    <meta charset="utf-8">
+  <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>My Title</title>
-    <link rel="stylesheet" href="css/main.css">
-  </head>
-  <body>
+    <title>My AddressBook</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="main.css">
 
-    <div class="container">
-      <h1>My Site Title</h1>
-    </div>
+</head>
+<body>
+    <h1> Address Book </h1>
+      <button class="button" id="startAdding">Please Add Me</button>
+        <form class="fillOutForm">
+          <label>Enter name:</label>
+          <input type="text", name="friendName" id="name" placeholder="Enter a name", required><br>
+          <label>Enter URL of friend's photo:</label>
+          <input type="url", name="photoUrl" id="photo" placeholder="URL of photo to add", required><br>
+          <label>Enter friend's Twitter handle:</label>
+          <input type="text", name="twitterHandle" id="twitter" placeholder="@example90", required><br>
+          <label>Enter friend's Phone Number:</label>
+          <input type="text", name="phone" id="phone" placeholder="444-444-4444", required><br>
+          <label>Enter friend's Email</label>
+          <input type="text", name="email" id="email" placeholder="example@example.org", required><br>
+          <button id="addFriend">Submit the Info</button>
+        </form>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Photo</th>
+              <th>Twitter</th>
+              <th>Phone</th>
+              <th>Email</th>
+              <th></th>
+             </tr>
+          </thead>
+          <tbody>
+          </tbody>
+        </table>
+      </div>
+  </div>
 
-    <script src="js/main.js"></script>
-  </body>
-</html>
+  <script src="../../bower_components/jquery/dist/jquery.js"></script>
+  <script src="../public/js/main.js"></script>
+</body>
