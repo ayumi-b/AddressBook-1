@@ -1,9 +1,9 @@
 {
   "name": "AddressBook",
-  "version": "0.0.0",
-  "homepage": "https://github.com/complikatyed/AddressBook",
+  "version": "0.0.1",
+  "homepage": "https://github.com/ayumi-b/AddressBook-1",
   "authors": [
-    "Katye Russell <katye.russell@gmail.com>"
+    "ayumi fukuda bennett <ayumi.fukuda@gmail.com>"
   ],
   "license": "MIT",
   "ignore": [
