@@ -1,0 +1,60 @@
+<meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>My AddressBook</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../public/main.css">
+</head>
+
+<body>
+  <h1> Address Book </h1>
+    
+    <div class="login">
+      <h2>Please Login or Register</h2>
+      <form class="form-inline" id="loginForm">
+        <input type="email" id="userEmail" name="email" placeholder="user@cats.com", required/>
+        <input type="password" id="userPassword" name="password" placeholder="p@s$w0RD123", required/>
+        <button id="registerButton" name="register">Register and Enter</button>
+        <button id="logInButton" name="login">LogIn</button>
+      </form>
+     </div>
+     
+     <div class="loggedIn hidden">
+        <button class="logout">LogOut</button>
+        <button id="pleaseAddMe">Please Add Me</button>
+        <form class="fillOutForm">
+          <label>Enter name:</label>
+          <input type="text", name="friendName" id="name" placeholder="Enter a name", required><br>
+          <label>Enter photo URL:</label>
+          <input type="url", name="photoUrl" id="photoUrl" placeholder="http://cattie.jpg", required><br>
+          <label>Enter Twitter handle:</label>
+          <input type="text", name="twitterHandle" id="twitter" placeholder="@cattie", required><br>
+          <label>Enter Phone Number:</label>
+          <input type="text", name="phone" id="phone" placeholder="444-444-4444", required><br>
+          <label>Enter Email Address</label>
+          <input type="text", name="email" id="email" placeholder="cattie@feline.org", required><br>
+          <button id="sendMyInfo">Submit the Info</button>
+        </form>
+        
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Photo</th>
+              <th>Twitter</th>
+              <th>Phone</th>
+              <th>Email</th>
+              <th></th>
+             </tr>
+          </thead>
+          <tbody>
+          </tbody>
+        </table>
+      
+      </div>
+  </div>
+ </div>
+ <script src="https://cdn.firebase.com/js/client/2.1.2/firebase.js"></script> 
+ <script src="../../bower_components/jquery/dist/jquery.js"></script>
+ <script src="../public/js/main.js"></script>
+</body>
