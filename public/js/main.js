@@ -87,24 +87,18 @@ $(document).ready(function setUpPage() {
 
   $('.fillOutForm').hide();
 
-  $.get(firebaseUrl +'/friends.json', function(res){
-    Object.keys(res).forEach(function(uuid){
-      addRowToTable(uuid, res[uuid]);
-    });
+  //$.get(firebaseUrl +'/friends.json', function(res){
+    //Object.keys(res).forEach(function(uuid){
+      //addRowToTable(uuid, res[uuid]);
+    //});
 
-  });
-
-  //function showForm() {
-    //$('.fillOutForm').toggle();
-  //}
-  //$('#pleaseAddMe').on('click', showForm);  
+});
 
 
 //show contact form 
 $('#pleaseAddMe').on('click', function toggled() {
   console.log("add the clicked items");
   $('.fillOutForm').toggle();
-  });
 });
 
 //once clicked, the info is placed on the table
@@ -112,7 +106,7 @@ $('#sendMyInfo').on('click',  function(event) {
   event.preventDefault();
 
   var name     = $('#name').val(),
-      url      = $('#photo').val(),
+      photoUrl = $('#photoUrl').val(),
       twitter  = $('#twitter').val(),
       phone    = $('#phone').val(),
       email    = $('#email').val(),
@@ -120,7 +114,7 @@ $('#sendMyInfo').on('click',  function(event) {
       $tr      = $('<tr><td>' +
                    name +
                    '</td><td><img src="' +
-                   url +
+                   photoUrl +
                    '"></td><td>' +
                    twitter +
                    '</td><td>' +
@@ -132,7 +126,7 @@ $('#sendMyInfo').on('click',  function(event) {
 //adding stuff to firebase
   var friendToAdd = JSON.stringify({
                                    name: name,
-                                   photoURL: url,
+                                   photoUrl: photoUrl,
                                    twitter: twitter,
                                    phone: phone,
                                    email: email});
@@ -143,7 +137,7 @@ $('#sendMyInfo').on('click',  function(event) {
 
   //clear out fields once placed
   $('#name').val("");
-  $('#photo').val("");
+  $('#photoUrl').val("");
   $('#twitter').val("");
   $('#phone').val("");
   $('#email').val("");
@@ -155,7 +149,7 @@ function addRowToTable(uuid, obj){
   var $tr = $('<tr><td>' +
                    obj.name +
                    '</td><td><img src="' +
-                   obj.url +
+                   obj.photoUrl +
                    '"></td><td>' +
                    obj.twitter +
                    '</td><td>' +
