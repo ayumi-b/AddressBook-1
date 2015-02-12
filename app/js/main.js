@@ -8,9 +8,11 @@
 function hello(){
  return 'world';
 };
+
 var $tbody      = $('tbody'),
     firebaseUrl = "https://bookofcontacts.firebaseio.com",
     fb          = new Firebase(firebaseUrl),
+    token,
     newFbUrl; 
     
 //login/registration part....
@@ -20,8 +22,10 @@ if (fb.getAuth()) {
   $('.loggedIn').toggleClass('hidden');
 
    newFbUrl = firebaseUrl + '/users/' + fb.getAuth().uid + '/data';
-  
-  $.get(newFbUrl + '/friends.json', function (res) {
+   token = fb.getAuth().token;
+
+
+  $.get(newFbUrl + '/friends.json?auth=' + token, function (res) {
     Object.keys(res).forEach(function (uuid) {
       addRowToTable(uuid, res[uuid]);
     });
@@ -135,7 +139,7 @@ $('#sendMyInfo').on('click',  function(event) {
                                    phone: phone,
                                    email: email});
   
-  $.post(newFbUrl + '/friends.json', friendToAdd, function(res) {
+  $.post(newFbUrl + '/friends.json?auth=' + token, friendToAdd, function(res) {
     $tr.attr('data-uuid', res.name);
     $('tbody').append($tr);
 
