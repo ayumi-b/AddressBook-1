@@ -1,6 +1,10 @@
 /* jshint browser: true, jquery: true */
 'use strict'
 
+//var $      = require('jquery'),
+    //_      = require('lodash'),
+    //Firebase = require('firebase');
+
 function hello(){
  return 'world';
 };
