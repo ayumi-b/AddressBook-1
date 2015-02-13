@@ -15,10 +15,10 @@ after_script:
 after_success:
   - npm install -g firebase-tools
   - if [[ "$TRAVIS_PULL_REQUEST" == "false" ]] && [[ "$TRAVIS_BRANCH" == "master" ]];
-    then firebase deploy; fi
+  then firebase deploy; fi
 env:
   global:
   - secure: UfipS1SGuQHF9nAl31k5oA2pIkPJGXdOyuoVbUw0XsWF2jKd6WBS/qevjOOdL0vsbPdfnng0beKb066mVWvXiwSAN5qSvM+cBsnJa9ctQz1NsMR8KdVyEdVe7VrkbB6pvIqSFvp0QA5LgsPw6KctwrNh3xvNYPdPlSFPWBWXnwQ=
   - secure: CfTfhCFsOsATjYrV1JuZ+G2X/TxunmD533icNvKW8kmUINX5hRq+mwlPElsTf7J9mEVxWDwA6erdjrUO6Gr5wfH3ieYegb+5YQAcE5ltaSqKTZtXGkCReOPz3/ZUvmQox643goTyg1MgB7vvEC/PDKcyPfmFM3meTqrAooj7GKQ=
-  - secure: GmIMQxFUee2AD5cFyL0jLHLsgQjU9DmbNCLrH+BjocSRpwHDW/jVa189MjTuFZ913f3Qyr+A/O1ik5mhSrZuOXt0LODZiJOBfP++jqQ4IKq4REJsvfsiW6gb+yAGWTm8B/cKBirQ/mjn8aQBrpnREkh6SBqZjSPM8B4AsamjRfU=
-  - secure: ea/ynj7K0WY1wySvnjFrG294AvZMdjxPRDDScYwBC4h/vw/oBn8X5qf4gREk4tjrqVaZ6xwlmY2BR1cNMTCeOxOj+67XjLdRAQLTPsVfW3ZeRb4NTtmTBymWIM1OdzIWExzsX9N2fJgzLfB4TmWv4XVKnbrsYN9F2Q3Gv3sDaU4=
+  - secure: brbAHGBUKpXPBh37jUs8nCWq+zd5US10JAaVvN/zCICbOm0Nf97P+vSLmb8ncnUAP31sQ38DyhRCJZiuYQM/VUAJH8l8IavnGK92kbeAI96mr/jGumPlg1GB1jL9BMEnI56sZRZhahKGaQaySR3zgg83PBQIYfb4ltM7yprK8pc=
+  - secure: L59KEkHGmvu8wt0wezv4m1aBnGde6kwV3paxpDOfK65Ql4Dlu8THdxM7SVuc0IP2vwegS1r4F2YBvqOep6xXnFdR1aE1xJoO1bTlA3UkrifvvwJZvBbYwip8x2F0Cr4Pj6nkjxkgorzrX7qUgbf+4tkbL4SA75Uj8EW2qfZO2zE=
