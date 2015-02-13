@@ -13,23 +13,30 @@ var $tbody      = $('tbody'),
     firebaseUrl = "https://bookofcontacts.firebaseio.com",
     fb          = new Firebase(firebaseUrl),
     token,
-    newFbUrl; 
+    newFb; 
     
 //login/registration part....
 
 if (fb.getAuth()) {
   $('.login').remove();
   $('.loggedIn').toggleClass('hidden');
+//directory structure is set up here.....no json....//
+   newFb = fb.child('users/' + fb.getAuth().uid + '/data/friends');
+   //token = fb.getAuth().token;
 
-   newFbUrl = firebaseUrl + '/users/' + fb.getAuth().uid + '/data';
-   token = fb.getAuth().token;
+   newFb.once('value', function (res) {
+     var data = res.val();
+     Object.keys(data).forEach(function (uuid) {
+       addRowToTable(uuid, data[uuid]);
+     });
+   });
 
 
-  $.get(newFbUrl + '/friends.json?auth=' + token, function (res) {
-    Object.keys(res).forEach(function (uuid) {
-      addRowToTable(uuid, res[uuid]);
-    });
-  });
+  //$.get(newFb + '/friends.json?auth=' + token, function (res) {
+    //Object.keys(res).forEach(function (uuid) {
+      //addRowToTable(uuid, res[uuid]);
+    //});
+  //});
  }
 //in order for those registering to work....//
  $('#registerButton').click(function (event) {
@@ -132,17 +139,28 @@ $('#sendMyInfo').on('click',  function(event) {
                    '</td><td><button id="removeRow">Remove</button><tr>');                   
 
 //adding stuff to firebase
-  var friendToAdd = JSON.stringify({
-                                   name: name,
-                                   photoUrl: photoUrl,
-                                   twitter: twitter,
-                                   phone: phone,
-                                   email: email});
+  //var friendToAdd = JSON.stringify({
+                                   //name: name,
+                                   //photoUrl: photoUrl,
+                                   //twitter: twitter,
+                                   //phone: phone,
+                                   //email: email});
   
-  $.post(newFbUrl + '/friends.json?auth=' + token, friendToAdd, function(res) {
-    $tr.attr('data-uuid', res.name);
-    $('tbody').append($tr);
+  //$.post(newFbUrl + '/friends.json?auth=' + token, friendToAdd, function(res) {
+    //$tr.attr('data-uuid', res.name);
+    //$('tbody').append($tr);
 
+function addFriendToDb(data, cb) {
+  newFb.push(data, function (res) { return cb(res.val()); });
+}
+  //var uuid = $tr.data('uuid'),
+      //url  = newFbUrl + '/friends/' + uuid + '.json';
+  //$.ajax(url, {type: 'DELETE'});
+//});
+
+function deleteFriendFromDb(uuid) {
+  newFb.child(uuid).remove();
+}
   //clear out fields once placed
   $('#name').val("");
   $('#photoUrl').val("");
@@ -151,7 +169,6 @@ $('#sendMyInfo').on('click',  function(event) {
   $('#email').val("");
   $('.fillOutForm').hide();
   });
-});
 
 function addRowToTable(uuid, obj){
   var $tr = $('<tr><td>' +
@@ -174,9 +191,5 @@ function addRowToTable(uuid, obj){
 $('tbody').on('click', '#removeRow', function(evt){
   var $tr = $(evt.target).closest('tr');
   $tr.remove();
-
-  var uuid = $tr.data('uuid'),
-      url  = newFbUrl + '/friends/' + uuid + '.json';
-  $.ajax(url, {type: 'DELETE'});
-});
+})
 
